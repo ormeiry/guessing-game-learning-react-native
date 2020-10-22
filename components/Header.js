@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         backgroundColor: Colors.primary,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        elevation: 7,
+        borderBottomWidth: 0.4,
     },
     headerTitle: {
         color: 'black',
