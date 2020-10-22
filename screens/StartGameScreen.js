@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
+import { View, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
 
 import Card from '../components/Card'
 import Input from '../components/Input'
 import NumberContainer from '../components/NumberContainer'
+import BodyText from '../components/BodyText'
+import TitleText from '../components/TitleText'
 import Colors from '../constants/colors'
 
 const StartGameScreen = props => {
@@ -37,7 +39,7 @@ const StartGameScreen = props => {
     if (confirmed) {
     confirmedOutput = (
         <Card style={styles.confirmedCard}>
-        <Text>You Selected</Text>
+        <TitleText>You Selected</TitleText>
             <NumberContainer>{selectedNum}</NumberContainer>
             <Button color={Colors.accent} title="START GAME" onPress={() => props.onStartGame(selectedNum)}/>
         </Card>)
@@ -46,9 +48,9 @@ const StartGameScreen = props => {
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={styles.screen}>
-            <Text style={styles.title}>Start a New Game!</Text>
+            <TitleText style={styles.title}>Start a New Game!</TitleText>
             <Card style={styles.inputContainer}>
-                <Text>Select a Number</Text>
+                <BodyText>Select a Number</BodyText>
                 <Input style={styles.input} blurOnSubmit autoCorrect={false} keyboardType="number-pad" maxLength={2} onChangeText={numInputHandler} value={enteredValue}/>
                 <View style={styles.buttonContainer}>
                 <View  style={styles.button}><Button title="Reset" onPress={resetInputHandler} color={Colors.accent} /></View>
@@ -68,9 +70,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     title: {
-        fontSize: 20,
         marginVertical: 10,
-        fontFamily: 'open-sans-bold'
     },
     inputContainer: {
         width: 300,
